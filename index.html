@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE HUB — Group 22 · FAUM CMP 2022</title>
+  <meta name="description" content="THE HUB — Group 22, FAUM Computer Science 2022 cohort. 10 developers, designers and problem-solvers building real products." />
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="landing.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+
+  <!-- Custom cursor (desktop) -->
+  <div class="cursor"     id="cur"></div>
+  <div class="cursor-ring" id="curRing"></div>
+
+  <!-- ════════════ NAVBAR ════════════ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      THE<span>HUB</span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link" onclick="scrollToSection('membersSection')">Team</button>
+      <button class="nav-link" onclick="scrollToSection('featuresSection')">Features</button>
+      <button class="nav-link" onclick="openAuth('login')">Sign In</button>
+      <button class="nav-cta"  onclick="openAuth('register')">Join Free →</button>
+    </div>
+    <button class="hamburger" onclick="toggleMobileNav()">☰</button>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <button onclick="scrollToSection('membersSection')">Team</button>
+    <button onclick="scrollToSection('featuresSection')">Features</button>
+    <button onclick="openAuth('login');toggleMobileNav()">Sign In</button>
+    <button onclick="openAuth('register');toggleMobileNav()">Create Account</button>
+  </div>
+
+  <!-- ════════════ HERO ════════════ -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-badge">
+      <span class="badge-icon">✦</span>
+      <span class="badge-pulse"></span>
+      FAUM Computer Science · Group 22 · 2022 Cohort
+    </div>
+    <h1 class="hero-h1">
+      Meet the <em>minds</em>
+      <span class="dim">behind the code.</span>
+    </h1>
+    <p class="hero-sub">
+      10 developers, designers, and problem-solvers from Benue State University.
+      One shared portfolio. Every project, every skill, every story — in one place.
+    </p>
+    <div class="hero-actions">
+      <button class="btn btn-primary btn-lg" onclick="openAuth('register')">Create Account →</button>
+      <button class="btn btn-ghost  btn-lg" onclick="guestEnter()">Browse as Guest</button>
+    </div>
+    <div class="scroll-cue"><div class="scroll-cue-line"></div></div>
+  </section>
+
+  <!-- ════════════ TICKER ════════════ -->
+  <div class="ticker-band">
+    <div class="ticker-track">
+      <!-- duplicated for seamless loop -->
+      <span class="ticker-item">Group 22</span>
+      <span class="ticker-item">FAUM CMP 2022</span>
+      <span class="ticker-item">THE HUB</span>
+      <span class="ticker-item">10 Members</span>
+      <span class="ticker-item">3 Projects</span>
+      <span class="ticker-item">Frontend</span>
+      <span class="ticker-item">Backend</span>
+      <span class="ticker-item">UI/UX Design</span>
+      <span class="ticker-item">Cybersecurity</span>
+      <span class="ticker-item">Data Analytics</span>
+      <span class="ticker-item">Mobile Dev</span>
+      <span class="ticker-item">Node.js</span>
+      <span class="ticker-item">Group 22</span>
+      <span class="ticker-item">FAUM CMP 2022</span>
+      <span class="ticker-item">THE HUB</span>
+      <span class="ticker-item">10 Members</span>
+      <span class="ticker-item">3 Projects</span>
+      <span class="ticker-item">Frontend</span>
+      <span class="ticker-item">Backend</span>
+      <span class="ticker-item">UI/UX Design</span>
+      <span class="ticker-item">Cybersecurity</span>
+      <span class="ticker-item">Data Analytics</span>
+      <span class="ticker-item">Mobile Dev</span>
+      <span class="ticker-item">Node.js</span>
+    </div>
+  </div>
+
+  <!-- ════════════ MEMBERS SHOWCASE ════════════ -->
+  <section class="members-section" id="membersSection">
+    <div class="section-label">
+      <div class="label-line"></div>
+      <div class="label-text">The Team</div>
+    </div>
+    <h2 class="section-title">10 builders.<br><em>One vision.</em></h2>
+    <p class="section-desc">
+      Hover to learn roles. Sign in to see full profiles, skills, contacts, and project contributions.
+    </p>
+    <!-- Populated by landing.js -->
+    <div class="members-grid-landing" id="landingMembersGrid">
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)">Loading team...</div>
+    </div>
+  </section>
+
+  <!-- ════════════ FEATURES ════════════ -->
+  <section class="features-section" id="featuresSection">
+    <div class="features-wrap">
+      <div class="features-left">
+        <div class="section-label">
+          <div class="label-line"></div>
+          <div class="label-text" style="color:rgba(255,255,255,.45)">Why THE HUB</div>
+        </div>
+        <h2 class="section-title dark-title">
+          Everything your<br><em class="red-em">group needs.</em>
+        </h2>
+        <p class="section-desc dark-desc">
+          From member profiles to project tracking — built for student groups who take their work seriously.
+        </p>
+        <div class="feat-list">
+          <div class="feat-row">
+            <div class="feat-ico" style="background:rgba(200,75,47,.18)">👤</div>
+            <div>
+              <div class="feat-title">Rich Member Profiles</div>
+              <div class="feat-desc">Photos, roles, skills, CV highlights, and contact info in one card.</div>
+            </div>
+          </div>
+          <div class="feat-row">
+            <div class="feat-ico" style="background:rgba(212,168,67,.18)">🚀</div>
+            <div>
+              <div class="feat-title">Project Tracking</div>
+              <div class="feat-desc">Log projects with tech stack, team members, and live progress.</div>
+            </div>
+          </div>
+          <div class="feat-row">
+            <div class="feat-ico" style="background:rgba(45,106,79,.22)">🔐</div>
+            <div>
+              <div class="feat-title">Auth & Accounts</div>
+              <div class="feat-desc">Members log in; guests browse public info. Contact details are protected.</div>
+            </div>
+          </div>
+          <div class="feat-row">
+            <div class="feat-ico" style="background:rgba(255,255,255,.07)">🔍</div>
+            <div>
+              <div class="feat-title">Search & Filter</div>
+              <div class="feat-desc">Find members by name, role, or skill instantly.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features-right">
+        <div class="feat-card">
+          <div class="feat-card-title">Active Members</div>
+          <div class="feat-card-sub">Group 22 · FAUM CMP 2022</div>
+          <!-- Populated by landing.js -->
+          <div class="feat-mini-row" id="featMiniAvatars"></div>
+        </div>
+        <div class="feat-2col">
+          <div class="feat-card">
+            <div class="feat-big-num">3</div>
+            <div class="feat-big-label">Active Projects</div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-big-num accent">22</div>
+            <div class="feat-big-label">Our Group</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ STATS ════════════ -->
+  <div class="stats-section">
+    <div class="stat-block">
+      <div class="stat-number">1<span>0</span></div>
+      <div class="stat-label">Group Members</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number"><span>3</span></div>
+      <div class="stat-label">Active Projects</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">20<span>22</span></div>
+      <div class="stat-label">Cohort Year</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number"><span>FAUM</span></div>
+      <div class="stat-label">University</div>
+    </div>
+  </div>
+
+  <!-- ════════════ CTA ════════════ -->
+  <section class="cta-section">
+    <h2 class="cta-title">Ready to<br><em>join the network?</em></h2>
+    <p class="cta-sub">
+      Create a free account to access full member profiles, project details,
+      contact info, and everything Group 22 has built.
+    </p>
+    <div class="cta-btns">
+      <button class="btn btn-accent btn-lg" onclick="openAuth('register')">Create Free Account →</button>
+      <button class="btn btn-ghost-white btn-lg" onclick="openAuth('login')">Sign In</button>
+    </div>
+  </section>
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <footer class="footer">
+    <div class="footer-logo">THE<span>HUB</span></div>
+    <div class="footer-copy">Group 22 · FAUM Computer Science · 2022 Cohort</div>
+    <div class="footer-links">
+      <span class="footer-link" onclick="openAuth('login')">Sign In</span>
+      <span class="footer-link" onclick="openAuth('register')">Register</span>
+      <a class="footer-link" href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <!-- ════════════ AUTH MODAL ════════════ -->
+  <div class="modal-overlay" id="authModal" onclick="maybeCloseAuth(event)">
+    <div class="modal-box auth-modal-box">
+
+      <div class="auth-modal-header">
+        <div class="auth-modal-logo">THE<span>HUB</span></div>
+        <div class="modal-close" onclick="closeAuth()">✕</div>
+      </div>
+
+      <div class="auth-modal-body">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="authTabLogin"    onclick="switchAuthTab('login')">Sign In</button>
+          <button class="auth-tab"        id="authTabRegister" onclick="switchAuthTab('register')">Create Account</button>
+        </div>
+
+        <!-- ── LOGIN PANEL ── -->
+        <div id="loginPanel">
+          <div class="auth-title">Welcome back 👋</div>
+          <div class="auth-sub">Sign in to unlock full profiles, contacts, and project details.</div>
+
+          <div class="quick-chips-label">Quick login — group members</div>
+          <div class="quick-chips" id="quickChips"></div>
+
+          <div class="form-divider">or enter credentials</div>
+
+          <div class="field">
+            <label class="field-label">Username or Email</label>
+            <input class="field-input" id="liIdentifier" type="text"
+                   placeholder="e.g. irene.olong or your email" />
+          </div>
+          <div class="field">
+            <label class="field-label">Password</label>
+            <input class="field-input" id="liPassword" type="password" placeholder="••••••••" />
+          </div>
+          <div class="auth-error" id="liErr"></div>
+
+          <button class="auth-submit" id="liBtn" data-label="Sign In →" onclick="doLogin()">Sign In →</button>
+          <button class="auth-submit ghost-btn" onclick="guestEnter()">Continue as Guest</button>
+        </div>
+
+        <!-- ── REGISTER PANEL ── -->
+        <div id="registerPanel" style="display:none">
+          <div class="auth-title">Join THE HUB ✨</div>
+          <div class="auth-sub">Create an account to access everything Group 22 has built.</div>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label">First Name</label>
+              <input class="field-input" id="regFirst" type="text" placeholder="Ada" />
+            </div>
+            <div class="field">
+              <label class="field-label">Last Name</label>
+              <input class="field-input" id="regLast" type="text" placeholder="Lovelace" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label">Matric Number</label>
+            <input class="field-input" id="regMatric" type="text" placeholder="FAUM/SC/CMP/22/XXXXX" />
+          </div>
+          <div class="field">
+            <label class="field-label">Email Address</label>
+            <input class="field-input" id="regEmail" type="email" placeholder="you@faum.edu.ng" />
+          </div>
+          <div class="field">
+            <label class="field-label">Department</label>
+            <input class="field-input" id="regDept" type="text" placeholder="Computer Science" />
+          </div>
+
+          <div class="field">
+            <label class="field-label">I am a...</label>
+            <div class="role-grid">
+              <div class="role-card active" id="rc-student"  onclick="pickRole('student')">
+                <div class="role-card-icon">🎓</div>
+                <div class="role-card-name">FAUM Student</div>
+              </div>
+              <div class="role-card" id="rc-alumni"   onclick="pickRole('alumni')">
+                <div class="role-card-icon">🏆</div>
+                <div class="role-card-name">Alumni</div>
+              </div>
+              <div class="role-card" id="rc-industry" onclick="pickRole('industry')">
+                <div class="role-card-icon">💼</div>
+                <div class="role-card-name">Industry Pro</div>
+              </div>
+              <div class="role-card" id="rc-lecturer" onclick="pickRole('lecturer')">
+                <div class="role-card-icon">📚</div>
+                <div class="role-card-name">Lecturer</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label">Password</label>
+              <input class="field-input" id="regPass" type="password" placeholder="Min 6 chars" />
+            </div>
+            <div class="field">
+              <label class="field-label">Confirm</label>
+              <input class="field-input" id="regPass2" type="password" placeholder="Repeat" />
+            </div>
+          </div>
+
+          <div class="auth-error"   id="regErr"></div>
+          <div class="auth-success" id="regOk"></div>
+          <button class="auth-submit" id="regBtn" data-label="Create Account →" onclick="doRegister()">
+            Create Account →
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════ MEMBER DETAIL MODAL ════════════ -->
+  <div class="modal-overlay" id="memberModal" onclick="maybeCloseMember(event)">
+    <div class="modal-box detail-modal" id="memberModalBox"></div>
+  </div>
+
+  <!-- ════════════ SCRIPTS ════════════ -->
+  <script src="data.js"></script>
+  <script src="auth.js"></script>
+  <script src="landing.js"></script>
+
+</body>
+</html>

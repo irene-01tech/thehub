@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — THE HUB · Group 22</title>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body class="dash-body">
+
+  <!-- ════════════ MEMBER DETAIL MODAL ════════════ -->
+  <div class="modal-overlay" id="memberModal" onclick="maybeCloseMember(event)">
+    <div class="modal-box detail-modal" id="memberModalBox"></div>
+  </div>
+
+  <div class="dash-layout">
+
+    <!-- ════════════ SIDEBAR ════════════ -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-text">THE<span>HUB</span></div>
+        <div class="sidebar-logo-sub">Group 22 · FAUM CMP 2022</div>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-av" id="sidebarAv">G</div>
+        <div>
+          <div class="sidebar-user-name" id="sidebarName">Loading...</div>
+          <div class="sidebar-user-role" id="sidebarRole">—</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-nav-label">Main</div>
+        <button class="sidebar-btn active" data-page="home"     onclick="dashNav('home',this)">
+          <span class="sb-icon">⌂</span> Home
+        </button>
+        <button class="sidebar-btn"        data-page="members"  onclick="dashNav('members',this)">
+          <span class="sb-icon">👥</span> Members
+        </button>
+        <button class="sidebar-btn"        data-page="projects" onclick="dashNav('projects',this)">
+          <span class="sb-icon">🚀</span> Projects
+        </button>
+        <button class="sidebar-btn"        data-page="news"     onclick="dashNav('news',this)">
+          <span class="sb-icon">📰</span> News & Updates
+        </button>
+
+        <div class="sidebar-nav-label">Account</div>
+        <button class="sidebar-btn"        data-page="profile"  onclick="dashNav('profile',this)">
+          <span class="sb-icon">👤</span> My Profile
+        </button>
+        <button class="sidebar-btn"        data-page="about"    onclick="dashNav('about',this)">
+          <span class="sb-icon">ℹ</span> About
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="logout-btn" onclick="doLogout()"><span>⎋</span> Log out</button>
+      </div>
+    </aside>
+
+    <!-- ════════════ MAIN CONTENT ════════════ -->
+    <div class="dash-main">
+
+      <!-- Topbar -->
+      <div class="dash-topbar">
+        <button class="topbar-hamburger" onclick="toggleSidebar()">☰</button>
+        <div class="dash-page-title" id="dashPageTitle">Home</div>
+        <div class="dash-searchbar">
+          <span class="search-icon-dash">⌕</span>
+          <input type="text" id="dashSearch" placeholder="Search members, projects..."
+                 oninput="handleDashSearch()" />
+        </div>
+        <div class="topbar-actions">
+          <div class="notif-wrap">
+            <div class="notif-btn">🔔</div>
+            <div class="notif-dot"></div>
+          </div>
+          <div class="topbar-av" id="topAvatar">G</div>
+        </div>
+      </div>
+
+      <!-- Page content — rendered by dashboard.js -->
+      <div class="dash-content" id="dashContent">
+        <div class="state-loading">Loading dashboard...</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ════════════ SCRIPTS ════════════ -->
+  <script src="data.js"></script>
+  <script src="auth.js"></script>
+  <script src="dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+/* ═══════════════════════════════════════════════
+   AUTH.CSS — Login & Register Modal Styles
+   OrgPortfolio · Group 22 · BSU CMP 2022
+═══════════════════════════════════════════════ */
+
+/* ── AUTH MODAL BOX ───────────────────────────── */
+.auth-modal-box { max-width: 460px; }
+
+.auth-modal-header {
+  padding: 26px 26px 0;
+  display: flex; align-items: flex-start; justify-content: space-between;
+}
+.auth-modal-logo { font-family: var(--font-display); font-size: 20px; font-weight: 800; letter-spacing: -.02em; }
+.auth-modal-logo span { color: var(--accent); }
+
+.auth-modal-body { padding: 22px 26px 28px; }
+
+/* ── TABS ─────────────────────────────────────── */
+.auth-tabs {
+  display: flex; background: var(--surface); border-radius: var(--radius-sm);
+  padding: 4px; margin-bottom: 24px; gap: 2px;
+}
+.auth-tab {
+  flex: 1; padding: 9px 12px; text-align: center; border-radius: 6px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: all .2s; color: var(--muted); border: none; background: none;
+  font-family: var(--font-body);
+}
+.auth-tab.active {
+  background: var(--white); color: var(--text);
+  box-shadow: 0 1px 4px rgba(11,11,18,.1);
+}
+
+/* ── TITLES ───────────────────────────────────── */
+.auth-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 5px; }
+.auth-sub   { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+
+/* ── QUICK CHIPS ──────────────────────────────── */
+.quick-chips-label { font-size: 11px; font-weight: 700; color: var(--muted2); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+.quick-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.quick-chip {
+  padding: 5px 12px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 100px; font-size: 12px; font-weight: 500; cursor: pointer;
+  color: var(--muted); transition: all .2s; font-family: var(--font-body);
+}
+.quick-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+/* ── DIVIDER ──────────────────────────────────── */
+.form-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 16px 0; color: var(--muted2); font-size: 12px; font-weight: 500;
+}
+.form-divider::before, .form-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── FORM FIELDS ──────────────────────────────── */
+.field { margin-bottom: 14px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field-label {
+  display: block; font-size: 11px; font-weight: 700; color: var(--text);
+  letter-spacing: .05em; text-transform: uppercase; margin-bottom: 7px;
+}
+.field-input {
+  width: 100%; background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm); padding: 11px 14px; color: var(--text);
+  font-family: var(--font-body); font-size: 14px; outline: none;
+  transition: border .2s, background .2s;
+}
+.field-input:focus { border-color: var(--accent); background: var(--white); }
+.field-input.has-error { border-color: #e53e3e; }
+
+/* ── ROLE PICKER ──────────────────────────────── */
+.role-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 4px; }
+.role-card {
+  padding: 12px 8px; background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm); cursor: pointer; transition: all .2s; text-align: center;
+}
+.role-card:hover { border-color: var(--border2); }
+.role-card.active { background: var(--accent-dim); border-color: var(--accent); }
+.role-card-icon { font-size: 20px; margin-bottom: 5px; }
+.role-card-name { font-size: 11px; font-weight: 600; color: var(--muted); }
+.role-card.active .role-card-name { color: var(--accent); }
+
+/* ── SUBMIT BUTTON ────────────────────────────── */
+.auth-submit {
+  width: 100%; padding: 13px; background: var(--ink); color: #fff;
+  border: none; border-radius: var(--radius-sm);
+  font-family: var(--font-display); font-size: 15px; font-weight: 700;
+  cursor: pointer; margin-top: 8px; transition: all .2s; letter-spacing: -.01em;
+}
+.auth-submit:hover { background: var(--accent); transform: translateY(-1px); }
+.auth-submit.ghost-btn {
+  background: var(--surface); color: var(--text); border: 1.5px solid var(--border);
+}
+.auth-submit.ghost-btn:hover { background: var(--white); border-color: var(--ink); transform: none; }
+
+/* ── MESSAGES ─────────────────────────────────── */
+.auth-error {
+  font-size: 13px; color: #c53030; background: #fff5f5;
+  border: 1px solid #fed7d7; border-radius: 8px; padding: 10px 14px;
+  margin-top: 10px; display: none;
+}
+.auth-error.show { display: block; }
+.auth-success {
+  font-size: 13px; color: var(--green); background: #f0fff4;
+  border: 1px solid #c6f6d5; border-radius: 8px; padding: 10px 14px;
+  margin-top: 10px; display: none; text-align: center;
+}
+.auth-success.show { display: block; }
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 480px) {
+  .auth-modal-header, .auth-modal-body { padding-left: 20px; padding-right: 20px; }
+  .role-grid { grid-template-columns: repeat(2,1fr); }
+  .field-row { grid-template-columns: 1fr; }
+}
