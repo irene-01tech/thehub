@@ -228,7 +228,7 @@ function renderMembersGrid(grid, members) {
   }
   grid.innerHTML = members.map((m, i) => {
     const firstName = m.name.split(' ')[0].toLowerCase();
-    const photoPath = `images/${firstName}.jpeg`;
+    const photoPath = `../images/${firstName}.jpeg`;
     return `
       <div class="dash-member-card animate-up" style="animation-delay:${(i * .05).toFixed(2)}s"
            onclick="openMemberModal('${m.id}')">
@@ -460,8 +460,8 @@ function openMemberModal(memberId) {
   if (!m) return;
   const isAuthed = !Store.isGuest();
   const firstName = m.name.split(' ')[0].toLowerCase();
-  const photoPath = `images/${firstName}.jpeg`;
-  const photoBig = `images/${firstName}.jpeg`;
+  const photoPath = `../images/${firstName}.jpeg`;
+  const photoBig = `../images/${firstName}.jpeg`;
 
   const contactHTML = isAuthed
     ? `<div class="contact-list">

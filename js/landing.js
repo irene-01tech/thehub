@@ -61,7 +61,7 @@ function buildLandingGrid() {
     const isLeader = m.isLeader;
     const delay    = (i * 0.07).toFixed(2);
     const firstName = m.name.split(' ')[0].toLowerCase();
-    const photoPath = `images/${firstName}.jpeg`;
+    const photoPath = `../images/${firstName}.jpeg`;
     return `
       <div class="member-card-landing${isLeader ? ' leader' : ''}"
            style="animation: fadeUp .55s ${delay}s ease both; opacity: 0"
@@ -98,8 +98,8 @@ function openMemberModal(memberId) {
   if (!m) return;
   const isAuthed  = Store.isLoggedIn() && !Store.isGuest();
   const firstName = m.name.split(' ')[0].toLowerCase();
-  const photoPath = `images/${firstName}.jpeg`;
-  const photoBig  = `images/${firstName}.jpeg`;
+  const photoPath = `../images/${firstName}.jpeg`;
+  const photoBig  = `../images/${firstName}.jpeg`;
 
   const contactHTML = isAuthed
     ? `<div class="contact-list">
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navCta = document.querySelector('.nav-cta');
     if (navCta) {
       navCta.textContent = 'Dashboard →';
-      navCta.onclick     = () => { window.location.href = 'dashboard.html'; };
+      navCta.onclick     = () => { window.location.href = './dashboard.html'; };
     }
   }
 });

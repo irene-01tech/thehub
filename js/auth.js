@@ -176,19 +176,14 @@ function doRegister() {
 function doLogout() {
   Store.logout();
   // Go back to landing page
-  window.location.href = window.location.pathname.includes('dashboard')
-    ? '../index.html'
-    : 'index.html';
+  window.location.href = './index.html';
 }
 
 /* ── REDIRECT TO DASHBOARD ───────────────────────────────────── */
 function goToDashboard() {
-  // Redirect to the dashboard in the same site root
-  const base = window.location.pathname.replace(/\/[^/]*$/, '/');
-  const redirectUrl = base + 'dashboard.html';
-  console.log('🚀 Redirecting to dashboard:', redirectUrl);
-  console.log('📍 Current pathname:', window.location.pathname);
-  window.location.href = redirectUrl;
+  // Redirect to the dashboard
+  console.log('🚀 Redirecting to dashboard');
+  window.location.href = './dashboard.html';
 }
 
 /* ── REDIRECT TO LANDING (if not logged in) ──────────────────── */
